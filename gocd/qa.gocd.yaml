@@ -1,0 +1,33 @@
+environments:
+  qa:
+    pipelines:
+      - app-qa
+
+pipelines:
+  app-qa:
+    group: Poc-App
+    label_template: "${COUNT}"
+    locking: off
+    environment_variables:
+      APP_ENVIRONMENT: qa
+    materials:
+      enviroment:
+        git: https://github.com/MurilloBatalha/Enviroment.PocGoCD.git
+        branch: master
+        shallow_clone: yes
+      app-build:
+        pipeline: app-build
+        stage: build
+    stages:
+      - deploy:
+          fetch_materials: yes
+          clean_workspace: yes
+          jobs:
+            rancher_up:
+              resources:
+                - DOCKER_QA
+              tasks:
+                - exec:
+                    command: make
+                    arguments:
+                      - "deploy"
