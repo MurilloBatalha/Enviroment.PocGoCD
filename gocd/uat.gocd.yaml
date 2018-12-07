@@ -28,11 +28,9 @@ pipelines:
                     pipeline: app-qa
                     stage: deploy
                     job: rancher_up
-                - exec:
-                    command: make
-                    arguments:
-                      - "deploy"
-                - exec:
-                    command: make
-                    arguments:
-                      - "export_versions"
+                    source: environment/
+                - script: |
+                    cd environment
+                    cat ./versions
+                    source ./versions
+                    rancher kubectl apply -f poc-app.yml

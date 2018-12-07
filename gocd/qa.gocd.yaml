@@ -15,6 +15,7 @@ pipelines:
         git: ssh://git@10.7.68.15:7999/pocgocd/poc.environment.git
         branch: master
         shallow_clone: yes
+        destination: app-environment
       app-build:
         pipeline: app-build
         stage: build
@@ -26,12 +27,16 @@ pipelines:
             rancher_up:
               resources:
                 - DOCKER_QA
+              artifacts:
+                - build:
+                    source: app-environment/*
+                    destination: environment
               tasks:
-                - exec:
-                    command: make
-                    arguments:
-                      - "deploy"
-                - exec:
-                    command: make
-                    arguments:
-                      - "export_versions"
+                - script: |
+                    cd app-environment ; \
+                    [[ -f ../environment/versions ]] && source ../environment/versions ; \
+                    ./prepare.sh
+	                  rancher kubectl apply -f poc-app.yml
+                - script: |
+                    cd app-environment
+                    echo "export $GO_DEPENDENCY_LABEL_APP_BUILD=\"${$GO_DEPENDENCY_LABEL_APP_BUILD}\"" > versions
