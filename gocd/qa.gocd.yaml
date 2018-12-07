@@ -12,7 +12,7 @@ pipelines:
       APP_ENVIRONMENT: qa
     materials:
       enviroment:
-        git: https://github.com/MurilloBatalha/Enviroment.PocGoCD.git
+        git: ssh://git@10.7.68.15:7999/pocgocd/poc.environment.git
         branch: master
         shallow_clone: yes
       app-build:
