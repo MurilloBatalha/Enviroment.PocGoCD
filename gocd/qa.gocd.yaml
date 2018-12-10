@@ -34,7 +34,7 @@ pipelines:
               tasks:
                 - script: |
                     cd app-environment
-                    rancher create configmap poc-app-configmap --from-file=./configs/qa.yaml --dry-run -o yaml | rancher replace -f -
+                    rancher kubectl create configmap poc-app-configmap --from-file=./configs/qa.yaml --dry-run -o yaml | rancher kubectl replace -f -
                     ./prepare.sh
                     rancher kubectl apply -f poc-app.yml
                 # - script: |
