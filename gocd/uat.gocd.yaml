@@ -31,5 +31,5 @@ pipelines:
                     source: environment/
                 - script: |
                     cd environment
-                    rancher kubectl create configmap poc-app-configmap --from-file=./configs/uat.yaml --dry-run -o yaml | rancher kubectl replace -f -
+                    rancher kubectl create configmap poc-app-configmap --from-file=./configs/uat.yaml --dry-run -o yaml | rancher kubectl apply -f -
                     rancher kubectl apply -f poc-app.yml
