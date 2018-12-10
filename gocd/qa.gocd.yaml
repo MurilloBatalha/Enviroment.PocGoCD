@@ -36,7 +36,7 @@ pipelines:
                     cd app-environment ; \
                     [[ -f ../environment/versions ]] && source ../environment/versions ; \
                     ./prepare.sh
-	                  rancher kubectl apply -f poc-app.yml
+                    rancher kubectl apply -f poc-app.yml
                 - script: |
                     cd app-environment
                     echo "export $GO_DEPENDENCY_LABEL_APP_BUILD=\"${$GO_DEPENDENCY_LABEL_APP_BUILD}\"" > versions
