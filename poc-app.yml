@@ -28,4 +28,4 @@ spec:
               name: poc-app-configmap
         imagePullPolicy: Always
         resources: {}
-        restartPolicy: Always
+      restartPolicy: Always
