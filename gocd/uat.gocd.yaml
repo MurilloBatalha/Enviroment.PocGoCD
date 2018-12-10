@@ -30,8 +30,9 @@ pipelines:
                     job: rancher_up
                     source: environment/
                 - script: |
-                    cd environment
-                    cat ./versions
-                    source ./versions
-                    ./prepare.sh
+                    # cd environment
+                    # cat ./versions
+                    # source ./versions
+                    # ./prepare.sh
+                    rancher create configmap poc-app-configmap --from-file=./configs/uat.yaml --dry-run -o yaml | rancher replace -f -
                     rancher kubectl apply -f poc-app.yml

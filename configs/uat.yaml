@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: poc-app-configmap
+  namespace: poc-app
+  labels:
+    name: poc-app-config
+data:
+  TEST_VAR: "Eta Giovanna"
+  env: "UAT"

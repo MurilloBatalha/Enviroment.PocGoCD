@@ -34,9 +34,10 @@ pipelines:
               tasks:
                 - script: |
                     cd app-environment ; \
-                    [[ -f ../environment/versions ]] && source ../environment/versions ; \
+                    # [[ -f ../environment/versions ]] && source ../environment/versions ; \
+                    rancher create configmap poc-app-configmap --from-file=./configs/qa.yaml --dry-run -o yaml | rancher replace -f -
                     ./prepare.sh
                     rancher kubectl apply -f poc-app.yml
-                - script: |
-                    cd app-environment
-                    echo "export GO_DEPENDENCY_LABEL_APP_BUILD=\"${GO_DEPENDENCY_LABEL_APP_BUILD}\"" > versions
+                # - script: |
+                #     cd app-environment
+                #     echo "export GO_DEPENDENCY_LABEL_APP_BUILD=\"${GO_DEPENDENCY_LABEL_APP_BUILD}\"" > versions

@@ -21,11 +21,10 @@ spec:
         app: poc-app-deploy
     spec:
       containers:
-      - env:
-        - name: abc
-          value: "123"
-        - name: test_env
-          value: ${GO_DEPENDENCY_LABEL_APP_BUILD}
+        env:
+          envFrom:
+          - configMapRef:
+              name: poc-app-configmap
         image: 080509/pocapp:{VERSION}
         imagePullPolicy: Always
         name: poc-app
