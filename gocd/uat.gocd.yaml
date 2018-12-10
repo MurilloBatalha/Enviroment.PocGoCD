@@ -30,7 +30,7 @@ pipelines:
                     job: rancher_up
                     source: environment/
                 - script: |
-                    # cd environment
+                    cd environment
                     # cat ./versions
                     # source ./versions
                     # ./prepare.sh

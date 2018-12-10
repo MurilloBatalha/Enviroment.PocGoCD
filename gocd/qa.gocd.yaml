@@ -33,7 +33,7 @@ pipelines:
                     destination: environment
               tasks:
                 - script: |
-                    cd app-environment ; \
+                    cd app-environment
                     # [[ -f ../environment/versions ]] && source ../environment/versions ; \
                     rancher create configmap poc-app-configmap --from-file=./configs/qa.yaml --dry-run -o yaml | rancher replace -f -
                     ./prepare.sh
