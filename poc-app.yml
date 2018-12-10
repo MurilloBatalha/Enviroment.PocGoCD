@@ -21,12 +21,11 @@ spec:
         app: poc-app-deploy
     spec:
       containers:
-      - env:
-          envFrom:
-            - configMapRef:
+      - name: poc-app
+        image: 080509/pocapp:{VERSION}
+        envFrom:
+          - configMapRef:
               name: poc-app-configmap
-      image: 080509/pocapp:{VERSION}
-      imagePullPolicy: Always
-      name: poc-app
-      resources: {}
-      restartPolicy: Always
+        imagePullPolicy: Always
+        resources: {}
+        restartPolicy: Always
