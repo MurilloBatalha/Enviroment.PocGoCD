@@ -10,7 +10,7 @@ pipelines:
     locking: off
     environment_variables:
       APP_ENVIRONMENT: uat
-    materials:      
+    materials:
       app-qa:
         pipeline: app-qa
         stage: deploy
@@ -33,4 +33,5 @@ pipelines:
                     cd environment
                     cat ./versions
                     source ./versions
+                    ./prepare.sh
                     rancher kubectl apply -f poc-app.yml
