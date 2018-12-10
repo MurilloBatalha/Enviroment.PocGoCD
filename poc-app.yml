@@ -24,6 +24,8 @@ spec:
       - env:
         - name: abc
           value: "123"
+        - name: test_env
+          value: ${GO_DEPENDENCY_LABEL_APP_BUILD}
         image: 080509/pocapp:{VERSION}
         imagePullPolicy: Always
         name: poc-app
