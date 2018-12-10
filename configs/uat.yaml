@@ -6,5 +6,5 @@ metadata:
   labels:
     name: poc-app-config
 data:
-  TEST_VAR: "Eta Giovanna"
-  env: "UAT"
+  TEST_VAR: "Eta Giovanna 2"
+  env: "UAT 2"

@@ -37,6 +37,3 @@ pipelines:
                     rancher kubectl apply -f ./configs/qa.yaml
                     ./prepare.sh
                     rancher kubectl apply -f poc-app.yml
-                # - script: |
-                #     cd app-environment
-                #     echo "export GO_DEPENDENCY_LABEL_APP_BUILD=\"${GO_DEPENDENCY_LABEL_APP_BUILD}\"" > versions
