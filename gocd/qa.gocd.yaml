@@ -36,4 +36,4 @@ pipelines:
                     cd app-environment
                     rancher kubectl apply -f ./configs/qa.yaml
                     ./prepare.sh
-                    rancher kubectl replace -f poc-app.yml
+                    rancher kubectl apply -f poc-app.yml --overwrite 
