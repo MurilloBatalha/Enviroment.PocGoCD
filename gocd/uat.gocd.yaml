@@ -13,7 +13,7 @@ pipelines:
     materials:
       app-qa:
         pipeline: app-qa
-        stage: deploy
+        stage: approval
     stages:
       - deploy:
           approval: manual
@@ -26,8 +26,8 @@ pipelines:
               tasks:
                 - fetch:
                     pipeline: app-qa
-                    stage: approval
-                    job: approval
+                    stage: deploy
+                    job: rancher_up
                     source: environment/
                 - script: |
                     cd environment
