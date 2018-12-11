@@ -38,6 +38,7 @@ pipelines:
                     ./prepare.sh
                     rancher kubectl apply -f poc-app.yml
       - acceptance_test:
+          approval: manual
           jobs:
             acceptance_test:
               resources:
@@ -46,8 +47,9 @@ pipelines:
                 - script: |
                     echo "ACCEPTANCE TEST"
       - approval:
+          approval: manual
           jobs:
-            acceptance_test:
+            approval:
               resources:
                 - DOCKER_QA
               tasks:

@@ -26,8 +26,8 @@ pipelines:
               tasks:
                 - fetch:
                     pipeline: app-qa
-                    stage: deploy
-                    job: rancher_up
+                    stage: approval
+                    job: approval
                     source: environment/
                 - script: |
                     cd environment
