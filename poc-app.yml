@@ -10,11 +10,8 @@ spec:
   selector:
     matchLabels:
       app: poc-app-deploy
-  strategy:
-    rollingUpdate:
-      maxSurge: 0
-      maxUnavailable: 1
-    type: RollingUpdate
+  strategy:    
+    type: Recreate
   template:
     metadata:
       labels:
