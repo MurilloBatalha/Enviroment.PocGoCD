@@ -6,5 +6,5 @@ metadata:
   labels:
     name: poc-app-config
 data:
-  TEST_VAR: "Ip aiy pi hey 2"
-  env: "QA 2"
+  TEST_VAR: "Ip aiy pi hey 3"
+  env: "QA 3"
