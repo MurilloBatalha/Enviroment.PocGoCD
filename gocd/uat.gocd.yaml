@@ -32,4 +32,4 @@ pipelines:
                 - script: |
                     cd environment
                     rancher kubectl apply -f ./configs/uat.yaml
-                    rancher kubectl apply -f poc-app.yml
+                    rancher kubectl replace -f poc-app.yml
