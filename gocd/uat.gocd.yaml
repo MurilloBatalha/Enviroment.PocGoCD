@@ -16,7 +16,10 @@ pipelines:
         stage: approval
     stages:
       - deploy:
-          approval: manual
+          approval: 
+            type: manual
+            roles:
+              - infra
           fetch_materials: yes
           clean_workspace: yes
           jobs:

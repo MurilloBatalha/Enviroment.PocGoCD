@@ -47,7 +47,10 @@ pipelines:
                 - script: |
                     echo "ACCEPTANCE TEST"
       - approval:
-          approval: manual
+          approval: 
+            type: manual
+            roles:
+              - infra
           jobs:
             approval:
               resources:
