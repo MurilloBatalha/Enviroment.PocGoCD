@@ -46,15 +46,3 @@ pipelines:
               tasks:
                 - script: |
                     echo "ACCEPTANCE TEST!!"
-      - approval:
-          approval: 
-            type: manual
-            roles:
-              - infra
-          jobs:
-            approval:
-              resources:
-                - DOCKER_QA
-              tasks:
-                - script: |
-                    echo "APPROVED"
