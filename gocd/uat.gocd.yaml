@@ -19,9 +19,7 @@ pipelines:
           approval: 
             type: manual
             roles:
-              - infra
-            users:
-              - infra
+              - infra 
           fetch_materials: yes
           clean_workspace: yes
           jobs:
