@@ -45,7 +45,7 @@ pipelines:
                 - DOCKER_QA
               tasks:
                 - script: |
-                    echo "ACCEPTANCE TEST"
+                    echo "ACCEPTANCE TEST!"
       - approval:
           approval: 
             type: manual
