@@ -13,7 +13,7 @@ pipelines:
     materials:
       app-qa:
         pipeline: app-qa
-        stage: approval
+        stage: acceptance_test
     stages:
       - deploy:
           approval: 
