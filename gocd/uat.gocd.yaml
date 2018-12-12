@@ -20,6 +20,8 @@ pipelines:
             type: manual
             roles:
               - infra
+            users:
+              - infra
           fetch_materials: yes
           clean_workspace: yes
           jobs:

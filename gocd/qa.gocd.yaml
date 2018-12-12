@@ -51,6 +51,8 @@ pipelines:
             type: manual
             roles:
               - infra
+            users:
+              - infra
           jobs:
             approval:
               resources:
