@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: poc-app
-        image: 080509/pocapp:{VERSION}
+        image: registry.hubcard.com.br/hubfintech/pocapp:{VERSION}
         ports:
           - containerPort: 80
         readinessProbe:
