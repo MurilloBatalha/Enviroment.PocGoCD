@@ -25,7 +25,10 @@ spec:
         image: 080509/pocapp:{VERSION}
         ports:
           - containerPort: 80
-          - containerPort: 443
+        readinessProbe:
+          httpGet:
+            path: /api/values
+            port: 80
         envFrom:
           - configMapRef:
               name: poc-app-configmap
