@@ -32,6 +32,17 @@ spec:
           initialDelaySeconds: 5
           timeoutSeconds: 1
           periodSeconds: 30
+        env:
+          - name: Rabbit__Password
+            valueFrom:
+              secretKeyRef:
+                name: poc-app-secret
+                key: rabbit-password
+          - name: SQL__Password
+            valueFrom:
+              secretKeyRef:
+                name: poc-app-secret
+                key: sqlserver-password
         envFrom:
           - configMapRef:
               name: poc-app-configmap
