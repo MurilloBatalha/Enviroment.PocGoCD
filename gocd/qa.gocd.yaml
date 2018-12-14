@@ -37,7 +37,7 @@ pipelines:
               tasks:
                 - script: |
                     cd app-environment
-                    rancher login ${RANCHER_URL} --token ${RANCHER_TOKEN} --context ${RANCHER_CONTEXT} < y
+                    yes | rancher login $RANCHER_URL --token $RANCHER_TOKEN --context $RANCHER_CONTEXT 
                     rancher kubectl apply -f ./configs/qa.yaml
                     ./prepare.sh
                     rancher kubectl apply -f poc-app.yml
