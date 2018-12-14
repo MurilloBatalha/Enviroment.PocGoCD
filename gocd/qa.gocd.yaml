@@ -45,8 +45,7 @@ pipelines:
           approval: manual
           jobs:
             acceptance_test:
-              resources:
-                - DOCKER_QA
+              elastic_profile_id: "Docker"
               tasks:
                 - script: |
                     echo "ACCEPTANCE TEST!!"
