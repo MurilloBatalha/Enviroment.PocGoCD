@@ -10,6 +10,10 @@ pipelines:
     locking: off
     environment_variables:
       APP_ENVIRONMENT: qa
+      RANCHER_URL: https://10.190.1.112/v3
+      RANCHER_CONTEXT: c-k8wck:p-k6kfl
+    secure_variables:
+      RANCHER_TOKEN: skaBRC8EF75Ty1fygXlVpg==:WxoQ+fxvuEUYHfUIsV8+CPmMiSuxPfWY2BX/jzSIs7XU/Ut0cbBBCvd95BVaEtWgo4d0lUhM1n3HLJlLE4vqrgA7EILB/pDIGGyk/UPlmxA=
     materials:
       enviroment:
         git: ssh://git@10.7.68.15:7999/pocgocd/poc.environment.git
@@ -25,8 +29,7 @@ pipelines:
           clean_workspace: yes
           jobs:
             rancher_up:
-              resources:
-                - DOCKER_QA
+              elastic_profile_id: "Docker"
               artifacts:
                 - build:
                     source: app-environment/*
@@ -34,6 +37,7 @@ pipelines:
               tasks:
                 - script: |
                     cd app-environment
+                    rancher login ${RANCHER_URL} --token ${RANCHER_TOKEN} --context ${RANCHER_CONTEXT}
                     rancher kubectl apply -f ./configs/qa.yaml
                     ./prepare.sh
                     rancher kubectl apply -f poc-app.yml
