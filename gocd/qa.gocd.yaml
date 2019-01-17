@@ -8,15 +8,15 @@ pipelines:
     group: Poc-App
     label_template: "${COUNT}"
     locking: off    
-    materials:
+    materials:      
+      app-build:
+        pipeline: app-build
+        stage: build
       enviroment:
         git: ssh://git@10.7.68.15:7999/pocgocd/poc.environment.git
         branch: master
         shallow_clone: yes
         destination: app-environment
-      app-build:
-        pipeline: app-build
-        stage: build
     stages:
       - deploy:
           fetch_materials: yes
