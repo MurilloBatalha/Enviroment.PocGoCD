@@ -3,10 +3,6 @@ kind: Ingress
 metadata:
   name: poc-app-ingress
   namespace: poc-app
-  annotations:
-    io.rancher.scheduler.global: 'true'
-    io.rancher.scheduler.affinity.host_label: 'compute=true'
-    http.port: "5006"
 spec:
   rules:
   - host: poc.api.com

@@ -47,5 +47,6 @@ spec:
           - configMapRef:
               name: poc-app-configmap
         imagePullPolicy: Always
-        resources: {}
+        requests:
+          cpu: "500m"
       restartPolicy: Always
