@@ -7,13 +7,7 @@ pipelines:
   app-qa:
     group: Poc-App
     label_template: "${COUNT}"
-    locking: off
-    environment_variables:
-      APP_ENVIRONMENT: qa
-      RANCHER_URL: https://10.190.1.112/v3
-      RANCHER_CONTEXT: c-k8wck:p-k6kfl
-    secure_variables:
-      RANCHER_TOKEN: AES:skaBRC8EF75Ty1fygXlVpg==:WxoQ+fxvuEUYHfUIsV8+CPmMiSuxPfWY2BX/jzSIs7XU/Ut0cbBBCvd95BVaEtWgo4d0lUhM1n3HLJlLE4vqrgA7EILB/pDIGGyk/UPlmxA=
+    locking: off    
     materials:
       enviroment:
         git: ssh://git@10.7.68.15:7999/pocgocd/poc.environment.git
